@@ -7,6 +7,8 @@ namespace CarLotSimulator
     public class CarLot
     {
         public List<Car> carList = new List<Car>();
+
+        public static int nubmerOfCars = 0;
         
     }
 
@@ -44,10 +46,9 @@ namespace CarLotSimulator
             firstCar.engineNoise = "vvrroooommm";
             firstCar.isDriveAble = true;
 
-            firstCar.MakeEngineNoise(firstCar.engineNoise);
-            firstCar.MakeHonkNoise(firstCar.honkNoise);
-
             carLot.carList.Add(firstCar);
+            CarLot.nubmerOfCars++;
+            Console.WriteLine($"There is {CarLot.nubmerOfCars} car in our lot");
 
             Car secondCar = new Car()
             {
@@ -60,18 +61,15 @@ namespace CarLotSimulator
 
             };
 
-            secondCar.MakeEngineNoise(secondCar.engineNoise);
-            secondCar.MakeHonkNoise(secondCar.honkNoise);
-
             carLot.carList.Add(secondCar);
-
+            CarLot.nubmerOfCars++;
+            Console.WriteLine($"There are {CarLot.nubmerOfCars} cars in our lot");
 
             Car thirdCar = new Car(2023, "Hyundi", "Elantra", "hoooonnnkkk", "vvrroooommm", true);
 
-            thirdCar.MakeEngineNoise(thirdCar.engineNoise);
-            thirdCar.MakeHonkNoise(thirdCar.honkNoise);
-
             carLot.carList.Add(thirdCar);
+            CarLot.nubmerOfCars++;
+            Console.WriteLine($"There are {CarLot.nubmerOfCars} cars in our lot");
 
             //*************BONUS X 2*************//
 
@@ -80,10 +78,11 @@ namespace CarLotSimulator
             //Instanciate the a Carlot at the beginning of the program and as you create a car add the car to the list.
             //At the end iterate through the list printing each of car's Year, Make, and Model to the console
 
+            Console.WriteLine($"These are the cars in our lot: ");
 
-            foreach(var car in carLot.carList)
+            foreach (var car in carLot.carList)
             {
-                Console.WriteLine($"These are the cars in our lot: {car.make} {car.model} {car.year}");
+               Console.WriteLine($"{car.make} {car.model} {car.year}");
             }
         }
     }
